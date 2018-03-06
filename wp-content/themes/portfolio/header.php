@@ -35,18 +35,14 @@
 
         <nav class="menu">
             <ul class="side-menu list-unstyled">
-                <li>
-                    <a href="index.html">Naslovna</a>
-                </li>
-                <li>
-                    <a href="Portfolio.html">Portfolio</a>
-                </li>
-                <li>
-                    <a href="Cover-letter.html">Letter</a>
-                </li>                
-                <li>
-                    <a href="Kontakt.html">Kontakt</a>
-                </li>
+              <?php
+              $top_menu = wp_get_nav_menu_items('MainMenu');
+              foreach ($top_menu as $menu) {
+                ?>
+                <li><a href="<?php echo $menu->url; ?>"><?php echo $menu->title; ?><a/></li>
+                <?php } ?>
+
+
             </ul>
             <span class="fa fa-close text-white"></span>
         </nav>
