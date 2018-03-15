@@ -165,3 +165,5 @@ function portfolio_get_post_content( $content ) {
             return do_shortcode( nl2br($content) );
 }
 add_filter( 'excerpt_more', 'portfolio_get_post_content' );
+
+require get_parent_theme_file_path( '/inc/template-functions.php' );

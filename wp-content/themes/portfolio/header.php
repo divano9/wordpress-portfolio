@@ -151,8 +151,22 @@
                                     <div class="col-9">
                                         <article>
                                             <h2>Professional Skills</h2>
-                                            <div class="skill" data-progress='85'>
-                                                <h4>Adobe Photoshop</h4>
+
+                                            <?php $args = array(
+                                              "numberposts" => -1,
+                                              "post_type" => 'skills',
+                                            );
+                                             $skills = get_posts($args);
+                                             ?>
+
+                                             <?php foreach($skills as $s) {?>
+
+                                            <?php $num = get_field("skill_percentage", $s->ID); ?>
+
+                                          <?php } ?>
+
+                                            <div class="skill" data-progress="<?php echo $num; ?>">
+                                                <h4><?php echo $s->post_title; ?></h4>
                                                     <div class="bar">
                                                         <div class="bar-progress">
                                                             <span class="dot"></span>

@@ -1,5 +1,7 @@
 <?php
 get_header();
+
+
  ?>
 
  <!--Work and education-->
@@ -13,14 +15,22 @@ get_header();
                  <div class="col-10 pl-4 px-md-0 square">
                      <div class="hr">
                          <h2>Work Experience</h2>
-                         <h4>UI & WEB DESIGNER @Academy</h4>
-                         <h5>JAN 2013 - DEC 2014</h5>
-                         <p>
-                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                         <?php $args = array(
+                           "numberposts" => -1,
+                           "post_type" => 'experience',
+                         );
+                          $experience = get_posts($args);
+                          ?>
+                          <?php foreach($experience as $e) {?>
+                           .<div class="custom-content hr">
+                              <h4><?php echo $e->post_title; ?></h4>
+                              <h5><?php echo $e->post_date; ?></h5>
+                              <p><?php echo $e->post_content; ?></p>
+                           </div>
                          </p>
+                       <?php } ?>
                      </div>
-                      <div class="hr">
+                      <!-- <div class="hr">
                          <h2>Work Experience</h2>
                          <h4>UI & WEB DESIGNER @Academy</h4>
                          <h5>JAN 2013 - DEC 2014</h5>
@@ -37,7 +47,7 @@ get_header();
                              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                          </p>
-                     </div>
+                     </div> -->
                  </div>
              </div>
          </article>
